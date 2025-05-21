@@ -2,43 +2,249 @@ import { SajuData } from "@/types/saju";
 
 export const sajuData: SajuData = {
   時: {
-    십상: [{ texts: ["傷官", "(천간)"] }],
-    천간: [{ texts: ["임", "壬", "陽水"], bgColor: "#2F2F2F" }],
-    지지: [{ texts: ["인", "寅", "陽木"], bgColor: "#18868C" }],
-    십성: [{ texts: ["比肩", "(비견)"] }],
-    십이운성: [{ texts: ["死", "(사)"] }],
-    십이신살: [{ texts: ["劫殺", "(겁살)"] }],
+    십상: [
+      {
+        texts: [
+          { type: "character", value: "傷官" },
+          { type: "annotation", value: "(상관)" },
+        ],
+      },
+    ],
+    천간: [
+      {
+        texts: [
+          { type: "phonetic", value: "임" },
+          { type: "character", value: "壬" },
+          { type: "element", value: "陽水" },
+        ],
+        bgColor: "#2F2F2F",
+      },
+    ],
+    지지: [
+      {
+        texts: [
+          { type: "phonetic", value: "인" },
+          { type: "character", value: "寅" },
+          { type: "element", value: "陽木" },
+        ],
+        bgColor: "#18868C",
+      },
+    ],
+    십성: [
+      {
+        texts: [
+          { type: "character", value: "比肩" },
+          { type: "annotation", value: "(비견)" },
+        ],
+      },
+    ],
+    십이운성: [
+      {
+        texts: [
+          { type: "character", value: "死" },
+          { type: "annotation", value: "(사)" },
+        ],
+      },
+    ],
+    십이신살: [
+      {
+        texts: [
+          { type: "character", value: "劫殺" },
+          { type: "annotation", value: "(겁살)" },
+        ],
+      },
+    ],
     귀인: null,
   },
   日: {
-    십상: [{ texts: ["比肩", "(비견)"] }],
-    천간: [{ texts: ["정", "丁", "陰火"], bgColor: "#C23030" }],
-    지지: [{ texts: ["사", "巳", "陰火"], bgColor: "#C23030" }],
-    십성: [{ texts: ["劫財", "(겁재)"] }],
-    십이운성: [{ texts: ["帝旺", "(제왕)"] }],
-    십이신살: [{ texts: ["地殺", "(지살)"] }],
+    십상: [
+      {
+        texts: [
+          { type: "character", value: "比肩" },
+          { type: "annotation", value: "(비견)" },
+        ],
+      },
+    ],
+    천간: [
+      {
+        texts: [
+          { type: "phonetic", value: "정" },
+          { type: "character", value: "丁" },
+          { type: "element", value: "陰火" },
+        ],
+        bgColor: "#C23030",
+      },
+    ],
+    지지: [
+      {
+        texts: [
+          { type: "phonetic", value: "사" },
+          { type: "character", value: "巳" },
+          { type: "element", value: "陰火" },
+        ],
+        bgColor: "#C23030",
+      },
+    ],
+    십성: [
+      {
+        texts: [
+          { type: "character", value: "劫財" },
+          { type: "annotation", value: "(겁재)" },
+        ],
+      },
+    ],
+    십이운성: [
+      {
+        texts: [
+          { type: "character", value: "帝旺" },
+          { type: "annotation", value: "(제왕)" },
+        ],
+      },
+    ],
+    십이신살: [
+      {
+        texts: [
+          { type: "character", value: "地殺" },
+          { type: "annotation", value: "(지살)" },
+        ],
+      },
+    ],
     귀인: null,
   },
   月: {
-    십상: [{ texts: ["傷官", "(상관)"] }],
-    천간: [{ texts: ["계", "癸", "陰水"], bgColor: "#2F2F2F" }],
-    지지: [{ texts: ["해", "亥", "陰水"], bgColor: "#2F2F2F" }],
-    십성: [{ texts: ["食神", "(식신)"] }],
-    십이운성: [{ texts: ["胎", "(태)"] }],
-    십이신살: [{ texts: ["驛馬殺", "(역마살)"] }],
-    귀인: [{ texts: ["天乙", "(천을귀인)"] }],
+    십상: [
+      {
+        texts: [
+          { type: "character", value: "傷官" },
+          { type: "annotation", value: "(상관)" },
+        ],
+      },
+    ],
+    천간: [
+      {
+        texts: [
+          { type: "phonetic", value: "계" },
+          { type: "character", value: "癸" },
+          { type: "element", value: "陰水" },
+        ],
+        bgColor: "#2F2F2F",
+      },
+    ],
+    지지: [
+      {
+        texts: [
+          { type: "phonetic", value: "해" },
+          { type: "character", value: "亥" },
+          { type: "element", value: "陰水" },
+        ],
+        bgColor: "#2F2F2F",
+      },
+    ],
+    십성: [
+      {
+        texts: [
+          { type: "character", value: "食神" },
+          { type: "annotation", value: "(식신)" },
+        ],
+      },
+    ],
+    십이운성: [
+      {
+        texts: [
+          { type: "character", value: "胎" },
+          { type: "annotation", value: "(태)" },
+        ],
+      },
+    ],
+    십이신살: [
+      {
+        texts: [
+          { type: "character", value: "驛馬殺" },
+          { type: "annotation", value: "(역마살)" },
+        ],
+      },
+    ],
+    귀인: [
+      {
+        texts: [
+          { type: "character", value: "天乙" },
+          { type: "annotation", value: "(천을귀인)" },
+        ],
+      },
+    ],
   },
   年: {
-    십상: [{ texts: ["傷官", "(상관)"] }],
-    천간: [{ texts: ["계", "癸", "陰水"], bgColor: "#2F2F2F" }],
-    지지: [{ texts: ["유", "酉", "陰金"], bgColor: "#F9F9F9" }],
-    십성: [{ texts: ["偏財", "(편재)"] }],
-    십이운성: [{ texts: ["長生", "(장생)"] }],
-    십이신살: [{ texts: ["將星殺", "(장성살)"] }],
+    십상: [
+      {
+        texts: [
+          { type: "character", value: "傷官" },
+          { type: "annotation", value: "(상관)" },
+        ],
+      },
+    ],
+    천간: [
+      {
+        texts: [
+          { type: "phonetic", value: "계" },
+          { type: "character", value: "癸" },
+          { type: "element", value: "陰水" },
+        ],
+        bgColor: "#2F2F2F",
+      },
+    ],
+    지지: [
+      {
+        texts: [
+          { type: "phonetic", value: "유" },
+          { type: "character", value: "酉" },
+          { type: "element", value: "陰金" },
+        ],
+        bgColor: "#F9F9F9",
+      },
+    ],
+    십성: [
+      {
+        texts: [
+          { type: "character", value: "偏財" },
+          { type: "annotation", value: "(편재)" },
+        ],
+      },
+    ],
+    십이운성: [
+      {
+        texts: [
+          { type: "character", value: "長生" },
+          { type: "annotation", value: "(장생)" },
+        ],
+      },
+    ],
+    십이신살: [
+      {
+        texts: [
+          { type: "character", value: "將星殺" },
+          { type: "annotation", value: "(장성살)" },
+        ],
+      },
+    ],
     귀인: [
-      { texts: ["天乙", "(천을귀인)"] },
-      { texts: ["太極", "(태극귀인)"] },
-      { texts: ["文昌", "(문창귀인)"] },
+      {
+        texts: [
+          { type: "character", value: "天乙" },
+          { type: "annotation", value: "(천을귀인)" },
+        ],
+      },
+      {
+        texts: [
+          { type: "character", value: "太極" },
+          { type: "annotation", value: "(태극귀인)" },
+        ],
+      },
+      {
+        texts: [
+          { type: "character", value: "文昌" },
+          { type: "annotation", value: "(문창귀인)" },
+        ],
+      },
     ],
   },
 };

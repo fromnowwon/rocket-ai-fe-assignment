@@ -9,8 +9,15 @@ export type RowKey =
   | "십이신살"
   | "귀인";
 
+export type TextType = "character" | "phonetic" | "element" | "annotation";
+
+export type TextItem = {
+  type: TextType;
+  value: string;
+};
+
 export type CellItem = {
-  texts: string[];
+  texts: TextItem[];
   bgColor?: string;
 };
 
