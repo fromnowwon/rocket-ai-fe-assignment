@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@theme {
+  --color-navy: #2b557e;
+  --color-gray-dark: #424242;
+  --color-navy-deep: #1b2f49;
+  --color-ivory: #f5f3ec;
+}
+
 @font-face {
   font-family: "GapyeongHanseokbong";
   src: url("/assets/fonts/otf/GapyeongHanseokbongR.otf") format("opentype"),
