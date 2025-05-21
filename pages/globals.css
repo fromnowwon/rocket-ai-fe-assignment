@@ -3,8 +3,15 @@
 @theme {
   --color-navy: #2b557e;
   --color-gray-dark: #424242;
+  --color-gray-light: #f3f2ef;
   --color-navy-deep: #1b2f49;
   --color-ivory: #f5f3ec;
+}
+
+@layer utilities {
+  .shadow-custom {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  }
 }
 
 @font-face {
