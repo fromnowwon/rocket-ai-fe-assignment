@@ -2,7 +2,7 @@ import { SajuData } from "@/types/saju";
 
 export const sajuData: SajuData = {
   時: {
-    十上: [
+    天干十星: [
       {
         texts: [
           { type: "character", value: "傷官" },
@@ -30,7 +30,7 @@ export const sajuData: SajuData = {
         bgColor: "#18868C",
       },
     ],
-    十性: [
+    地支十星: [
       {
         texts: [
           { type: "character", value: "比肩" },
@@ -58,7 +58,7 @@ export const sajuData: SajuData = {
   },
 
   日: {
-    十上: [
+    天干十星: [
       {
         texts: [
           { type: "character", value: "比肩" },
@@ -86,7 +86,7 @@ export const sajuData: SajuData = {
         bgColor: "#C23030",
       },
     ],
-    十性: [
+    地支十星: [
       {
         texts: [
           { type: "character", value: "劫財" },
@@ -114,7 +114,7 @@ export const sajuData: SajuData = {
   },
 
   月: {
-    十上: [
+    天干十星: [
       {
         texts: [
           { type: "character", value: "傷官" },
@@ -142,7 +142,7 @@ export const sajuData: SajuData = {
         bgColor: "#2F2F2F",
       },
     ],
-    十性: [
+    地支十星: [
       {
         texts: [
           { type: "character", value: "食神" },
@@ -177,7 +177,7 @@ export const sajuData: SajuData = {
   },
 
   年: {
-    十上: [
+    天干十星: [
       {
         texts: [
           { type: "character", value: "傷官" },
@@ -205,7 +205,7 @@ export const sajuData: SajuData = {
         bgColor: "#F9F9F9",
       },
     ],
-    十性: [
+    地支十星: [
       {
         texts: [
           { type: "character", value: "偏財" },
