@@ -25,7 +25,7 @@ export default function KeyVisualSection() {
           alt="말풍선"
           aria-hidden="true"
         />
-        <div className="absolute bottom-11 left-1/2 -translate-x-1/2 flex items-center justify-center w-33.5">
+        <div className="absolute bottom-11 left-1/2 -translate-x-1/2 flex items-center justify-center w-40">
           <p className="text-center leading-[1.5] tracking-[-0.025em]">
             이제 본격적으로
             <br />
