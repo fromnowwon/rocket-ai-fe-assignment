@@ -23,8 +23,13 @@ export type CellItem = {
 
 export type CellData = CellItem[] | null;
 
+export type ColumnData = {
+  [row in RowKey]: CellData;
+};
+
 export type SajuData = {
-  [col in Column]: {
-    [row in RowKey]: CellData;
+  userName: string;
+  data: {
+    [col in Column]: ColumnData;
   };
 };
