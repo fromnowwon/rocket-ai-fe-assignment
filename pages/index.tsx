@@ -6,7 +6,7 @@ export default function Home() {
     <main className="max-w-md w-full mx-auto pb-20 bg-gray-light">
       <h1 className="sr-only">제 1장 나의 사주 팔자</h1>
 
-      <section className="w-full pb-23.5">
+      <section className="relative w-full pb-28.5">
         <div className="relative w-full aspect-[375/652]">
           <Image
             src="/assets/images/key_visual.jpg"
@@ -17,9 +17,28 @@ export default function Home() {
           />
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#F3F2EF] pointer-events-none" />
         </div>
+
+        <div className="absolute bottom-0">
+          <Image
+            src="/assets/images/bubble1.png"
+            width={257}
+            height={181}
+            alt="말풍선"
+            aria-hidden="true"
+          />
+          <div className="absolute bottom-11 left-1/2 -translate-x-1/2 flex items-center justify-center w-33.5">
+            <p className="text-center leading-[1.5] tracking-[-0.025em]">
+              이제 본격적으로
+              <br />
+              OO님의 사주팔자를
+              <br />
+              분석해볼 차례네요.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section className="relative h-86.25 pt-5 pb-10">
+      <section className="relative h-71.25 pb-10">
         <div className="absolute right-6 bottom-10">
           <Image
             src="/assets/images/scene1.png"
@@ -39,7 +58,23 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
+      <section className="relative">
+        <div className="absolute top-[-125px] left-1 z-19">
+          <Image
+            src="/assets/images/bubble2.png"
+            width={281}
+            height={181}
+            alt="말풍선"
+            aria-hidden="true"
+          />
+          <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex items-center justify-center w-42.75">
+            <p className="text-center leading-[1.5] tracking-[-0.025em]">
+              제가 oo님의 사주를
+              <br />
+              보기 쉽게 표로 정리했어요
+            </p>
+          </div>
+        </div>
         <div className="relative aspect-[375/306]">
           <Image
             src="/assets/images/scene2.jpg"
