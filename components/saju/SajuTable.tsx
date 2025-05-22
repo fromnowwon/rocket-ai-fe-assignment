@@ -2,54 +2,88 @@ import { sajuData } from "@/data/sajuData";
 import { Column, RowKey } from "@/types/saju";
 
 const rowHeaders: { label: string; key: RowKey }[] = [
-  { label: "十星\n(십상)", key: "십상" },
-  { label: "天干\n(천간)", key: "천간" },
-  { label: "地支\n(지지)", key: "지지" },
-  { label: "十星\n(십성)", key: "십성" },
-  { label: "十二運星\n(십이운성)", key: "십이운성" },
-  { label: "十二神殺\n(십이신살)", key: "십이신살" },
-  { label: "貴人\n(귀인)", key: "귀인" },
+  { label: "十上\n(십상)", key: "十上" },
+  { label: "天干\n(천간)", key: "天干" },
+  { label: "地支\n(지지)", key: "地支" },
+  { label: "十性\n(십성)", key: "十性" },
+  { label: "十二運星\n(십이운성)", key: "十二運星" },
+  { label: "十二神殺\n(십이신살)", key: "十二神殺" },
+  { label: "貴人\n(귀인)", key: "貴人" },
 ];
 
 const colHeaders: Column[] = ["時", "日", "月", "年"];
 
 export default function SajuTable() {
   return (
-    <table className="w-full table-fixed border-collapse">
+    <table className="w-full table-fixed border-collapse leading-[100%] border-none">
       <thead>
         <tr>
-          <th className="w-12"></th>
-          {colHeaders.map((col) => (
-            <th
-              key={col}
-              className="border border-gray-300 font-bold text-center align-center text-xl"
-            >
-              {col}
-            </th>
-          ))}
+          <th className="w-12 h-11.25 border-b border-black"></th>
+          {colHeaders.map((col) => {
+            const addGrayRightBorder =
+              col === "時" || col === "日" || col === "月";
+
+            return (
+              <th
+                key={col}
+                className={`h-11.25 border-t-0 border-b border-black font-bold text-center text-xl`}
+                style={{
+                  borderLeft: "1px solid black",
+                  borderRight: addGrayRightBorder
+                    ? "1px solid rgba(138, 138, 138, 0.5)"
+                    : "1px solid black",
+                }}
+              >
+                {col}
+              </th>
+            );
+          })}
         </tr>
       </thead>
+
       <tbody>
-        {rowHeaders.map(({ label, key }) => (
+        {rowHeaders.map(({ label, key }, rowIdx) => (
           <tr key={key}>
-            <th className="border border-gray-300 w-12 whitespace-pre-line text-center">
-              <div className="text-[10px] leading-tight">
+            <th
+              className="w-12 whitespace-pre-line text-center"
+              style={{
+                borderTop: rowIdx === 3 ? "1px solid black" : "none",
+                borderLeft: "none",
+                borderRight: "1px solid black",
+                borderBottom: "1px solid black",
+              }}
+            >
+              <div className="text-xs leading-tight">
                 {label.split("\n")[0]}
               </div>
-              <div className="text-[8px] text-gray-600 leading-none">
+              <div className="text-[8px] font-bold leading-tight">
                 {label.split("\n")[1]}
               </div>
             </th>
+
             {colHeaders.map((col) => {
+              const isGrayBorderCol =
+                col === "時" || col === "日" || col === "月";
+
               const cellData = sajuData[col]?.[key];
+
+              const borderRightStyle = isGrayBorderCol
+                ? "1px solid rgba(138, 138, 138, 0.5)"
+                : "1px solid black";
 
               if (!cellData) {
                 return (
                   <td
                     key={col}
-                    className="border text-center align-middle bg-white"
+                    className="text-center align-middle bg-white"
+                    style={{
+                      borderTop: "none",
+                      borderLeft: "none",
+                      borderRight: borderRightStyle,
+                      borderBottom: "1px solid black",
+                    }}
                   >
-                    <div className="w-full h-full flex items-center justify-center text-center text-[10px]">
+                    <div className="w-full h-full flex items-center justify-center text-[10px] font-bold">
                       (없음)
                     </div>
                   </td>
@@ -59,21 +93,27 @@ export default function SajuTable() {
               return (
                 <td
                   key={col}
-                  className="p-1.5 border text-center align-middle bg-white"
+                  className="pt-1.25 pb-1.25 text-center align-middle bg-white"
+                  style={{
+                    borderTop: "none",
+                    borderLeft: "none",
+                    borderRight: borderRightStyle,
+                    borderBottom: "1px solid black",
+                  }}
                 >
-                  <div className="w-full h-full flex flex-col items-center justify-center text-center">
+                  <div className="w-full h-full flex flex-col gap-1.5 items-center justify-center text-center">
                     {cellData.map((item, i) => {
                       const hasBg =
-                        ["천간", "지지"].includes(key) && item.bgColor;
+                        ["天干", "地支"].includes(key) && item.bgColor;
                       const isWhiteBg =
                         item.bgColor?.toLowerCase() === "#f9f9f9";
 
                       return (
                         <div
                           key={i}
-                          className={`flex flex-col items-center justify-center leading-[100%] ${
+                          className={`flex flex-col items-center justify-center ${
                             hasBg
-                              ? "aspect-square w-full max-w-[48px] rounded-md"
+                              ? "aspect-square w-full max-w-[48px] rounded-xl"
                               : ""
                           }`}
                           style={
@@ -98,13 +138,20 @@ export default function SajuTable() {
                             } else {
                               textSizeClass =
                                 t.type === "character"
-                                  ? "text-sm"
+                                  ? "text-sm leading-tight"
+                                  : t.type === "annotation"
+                                  ? "text-[10px] leading-tight font-bold"
                                   : "text-[10px]";
                             }
 
+                            const value =
+                              t.type === "annotation"
+                                ? `(${t.value})`
+                                : t.value;
+
                             return (
                               <div key={j} className={textSizeClass}>
-                                {t.value}
+                                {value}
                               </div>
                             );
                           })}

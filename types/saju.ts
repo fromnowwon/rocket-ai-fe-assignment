@@ -1,13 +1,13 @@
 export type Column = "時" | "日" | "月" | "年";
 
 export type RowKey =
-  | "십상"
-  | "천간"
-  | "지지"
-  | "십성"
-  | "십이운성"
-  | "십이신살"
-  | "귀인";
+  | "十上"
+  | "天干"
+  | "地支"
+  | "十性"
+  | "十二運星"
+  | "十二神殺"
+  | "貴人";
 
 export type TextType = "character" | "phonetic" | "element" | "annotation";
 
