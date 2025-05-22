@@ -2,16 +2,23 @@ import { sajuData } from "@/data/sajuData";
 import { Column, RowKey } from "@/types/saju";
 
 const rowHeaders: { label: string; key: RowKey }[] = [
-  { label: "十上\n(십상)", key: "十上" },
+  { label: "十星\n(십성)", key: "天干十星" },
   { label: "天干\n(천간)", key: "天干" },
   { label: "地支\n(지지)", key: "地支" },
-  { label: "十性\n(십성)", key: "十性" },
+  { label: "十星\n(십성)", key: "地支十星" },
   { label: "十二運星\n(십이운성)", key: "十二運星" },
   { label: "十二神殺\n(십이신살)", key: "十二神殺" },
   { label: "貴人\n(귀인)", key: "貴人" },
 ];
 
 const colHeaders: Column[] = ["時", "日", "月", "年"];
+
+const getColRightBorder = (col: Column) =>
+  ["時", "日", "月"].includes(col)
+    ? "1px solid rgba(138, 138, 138, 0.35)"
+    : "1px solid black";
+const getRowBottomBorder = (rowIdx: number) =>
+  rowIdx === 1 ? "1px solid rgba(138, 138, 138, 0.35)" : "1px solid black";
 
 export default function SajuTable() {
   return (
@@ -20,18 +27,13 @@ export default function SajuTable() {
         <tr>
           <th className="w-12 h-11.25 border-b border-black"></th>
           {colHeaders.map((col) => {
-            const addGrayRightBorder =
-              col === "時" || col === "日" || col === "月";
-
             return (
               <th
                 key={col}
                 className={`h-11.25 border-t-0 border-b border-black font-bold text-center text-xl`}
                 style={{
                   borderLeft: "1px solid black",
-                  borderRight: addGrayRightBorder
-                    ? "1px solid rgba(138, 138, 138, 0.5)"
-                    : "1px solid black",
+                  borderRight: getColRightBorder(col),
                 }}
               >
                 {col}
@@ -47,10 +49,10 @@ export default function SajuTable() {
             <th
               className="w-12 whitespace-pre-line text-center"
               style={{
-                borderTop: rowIdx === 3 ? "1px solid black" : "none",
+                borderTop: "none",
                 borderLeft: "none",
                 borderRight: "1px solid black",
-                borderBottom: "1px solid black",
+                borderBottom: getRowBottomBorder(rowIdx),
               }}
             >
               <div className="text-xs leading-tight">
@@ -62,14 +64,11 @@ export default function SajuTable() {
             </th>
 
             {colHeaders.map((col) => {
-              const isGrayBorderCol =
-                col === "時" || col === "日" || col === "月";
-
               const cellData = sajuData[col]?.[key];
 
-              const borderRightStyle = isGrayBorderCol
-                ? "1px solid rgba(138, 138, 138, 0.5)"
-                : "1px solid black";
+              // const borderRightStyle = hasGrayRightBorder(col)
+              //   ? "1px solid rgba(138, 138, 138, 0.35)"
+              //   : "1px solid black";
 
               if (!cellData) {
                 return (
@@ -79,8 +78,8 @@ export default function SajuTable() {
                     style={{
                       borderTop: "none",
                       borderLeft: "none",
-                      borderRight: borderRightStyle,
-                      borderBottom: "1px solid black",
+                      borderRight: getColRightBorder(col),
+                      borderBottom: getRowBottomBorder(rowIdx),
                     }}
                   >
                     <div className="w-full h-full flex items-center justify-center text-[10px] font-bold">
@@ -97,8 +96,8 @@ export default function SajuTable() {
                   style={{
                     borderTop: "none",
                     borderLeft: "none",
-                    borderRight: borderRightStyle,
-                    borderBottom: "1px solid black",
+                    borderRight: getColRightBorder(col),
+                    borderBottom: getRowBottomBorder(rowIdx),
                   }}
                 >
                   <div className="w-full h-full flex flex-col gap-1.5 items-center justify-center text-center">
