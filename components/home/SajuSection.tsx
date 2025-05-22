@@ -1,11 +1,14 @@
 import Image from "next/image";
 import SajuTable from "./SajuTable";
+import { useSajuStore } from "@/store/useSajuStore";
 
 export default function SajuSection() {
+  const userName = useSajuStore((state) => state.userName);
+
   return (
     <section className="relative flex flex-col items-center w-full max-w-87.75 mx-auto -mt-[23px] pt-10 pb-8.25 px-4 bg-ivory border-3 border-navy-deep shadow-custom">
       <h2 className="text-center text-darkGray leading-[100%]">
-        김로켓님의 사주
+        {userName}님의 사주
       </h2>
       <p className="mt-3 font-bold text-xl text-center text-darkGray leading-[100%]">
         1980년 8월27일 08:10

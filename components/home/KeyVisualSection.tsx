@@ -1,6 +1,9 @@
+import { useSajuStore } from "@/store/useSajuStore";
 import Image from "next/image";
 
 export default function KeyVisualSection() {
+  const userName = useSajuStore((state) => state.userName);
+
   return (
     <section className="relative w-full pb-28.5">
       <div className="relative w-full aspect-[375/652]">
@@ -26,7 +29,7 @@ export default function KeyVisualSection() {
           <p className="text-center leading-[1.5] tracking-[-0.025em]">
             이제 본격적으로
             <br />
-            OO님의 사주팔자를
+            {userName}님의 사주팔자를
             <br />
             분석해볼 차례네요.
           </p>

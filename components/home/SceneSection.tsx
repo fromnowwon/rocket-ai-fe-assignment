@@ -1,6 +1,9 @@
+import { useSajuStore } from "@/store/useSajuStore";
 import Image from "next/image";
 
 export default function SceneSection() {
+  const userName = useSajuStore((state) => state.userName);
+
   return (
     <>
       <section className="relative h-71.25 pb-10">
@@ -34,7 +37,7 @@ export default function SceneSection() {
           />
           <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex items-center justify-center w-42.75">
             <p className="text-center leading-[1.5] tracking-[-0.025em]">
-              제가 oo님의 사주를
+              제가 {userName}님의 사주를
               <br />
               보기 쉽게 표로 정리했어요
             </p>

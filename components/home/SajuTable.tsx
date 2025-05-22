@@ -1,5 +1,5 @@
-import { sajuData } from "@/data/sajuData";
 import { Column, RowKey } from "@/types/saju";
+import { useSajuStore } from "@/store/useSajuStore";
 
 const rowHeaders: { label: string; key: RowKey }[] = [
   { label: "十星\n(십성)", key: "天干十星" },
@@ -21,6 +21,16 @@ const getRowBottomBorder = (rowIdx: number) =>
   rowIdx === 1 ? "1px solid rgba(138, 138, 138, 0.35)" : "1px solid black";
 
 export default function SajuTable() {
+  const data = useSajuStore((state) => state.data);
+
+  if (!data) {
+    return (
+      <div className="w-full text-center py-10 text-gray-500 font-bold">
+        데이터가 없습니다.
+      </div>
+    );
+  }
+
   return (
     <table className="w-full table-fixed border-collapse leading-[100%] border-none">
       <thead>
@@ -64,11 +74,7 @@ export default function SajuTable() {
             </th>
 
             {colHeaders.map((col) => {
-              const cellData = sajuData[col]?.[key];
-
-              // const borderRightStyle = hasGrayRightBorder(col)
-              //   ? "1px solid rgba(138, 138, 138, 0.35)"
-              //   : "1px solid black";
+              const cellData = data[col]?.[key];
 
               if (!cellData) {
                 return (
